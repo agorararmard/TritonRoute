@@ -1866,8 +1866,8 @@ int FlexDR::main() {
   searchRepair(10,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
   end();
   searchRepair(11,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
-  //end();
-  //searchRepair(12,  7,  0, 4, DRCCOST, MARKERCOST,  16, 2, true, 0, false, 3); // true search and repair
+  end();
+  searchRepair(12,  7,  0, 4, 2*DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
  
   if (DRC_RPT_FILE != string("")) {
     reportDRC();
