@@ -1844,21 +1844,31 @@ int FlexDR::main() {
   // assume only mazeEndIter > 1 if enableDRC and ripupMode == 0 (partial ripup)
   //end();
   //searchRepair(1,  7, -4,  1, DRCCOST, 0,          0, 0, true, 1, false, 0, true); // test mode
-  end();
+   end();
   searchRepair(1,  7, -4, 1, DRCCOST, 0,          0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
   end();
-  searchRepair(2,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+  searchRepair(2,  7, -4, 1, 2*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
   end();
-  searchRepair(3,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+  searchRepair(3,  7, 0, 4, 4*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+  end();//New
+  searchRepair(4,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
   end();
-  searchRepair(4,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+  searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
   end();
-  searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+  searchRepair(6,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 1, false, 3); // true search and repair
+  end();//New
+  searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
   end();
-  searchRepair(6,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+  searchRepair(8,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
   end();
-  searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
-  // end();
+  searchRepair(9,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+  end();
+  searchRepair(10,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+  end();
+  searchRepair(11,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+  end();
+  searchRepair(12,  7,  0, 4, DRCCOST, MARKERCOST,  16, 2, true, 0, false, 3); // true search and repair
+   // end();
   // searchRepair(8,  7,  0, 4, DRCCOST, MARKERCOST,  16, 2, true, 0, false, 3); // true search and repair
   if (DRC_RPT_FILE != string("")) {
     reportDRC();
