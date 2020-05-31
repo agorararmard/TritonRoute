@@ -44,6 +44,8 @@ extern std::string OUT_FILE;
 extern std::string DBPROCESSNODE;
 extern std::string OUT_MAZE_FILE;
 extern std::string DRC_RPT_FILE;
+extern int OPT_MODE;
+extern std::vector<fr::optimizationIterationParams> OPT_ITERS;
 extern int MAX_THREADS ;
 extern int VERBOSE     ;
 extern int BOTTOM_ROUTING_LAYER;
@@ -115,3 +117,4 @@ extern std::ostream& operator<< (std::ostream& os, const fr::frBox &box);
 //extern void printAllMacros(const std::shared_ptr<fr::frDesign> &design);
 
 #endif
+

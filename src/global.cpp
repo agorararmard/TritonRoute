@@ -40,6 +40,8 @@ string OUTTA_FILE;
 string OUT_FILE;
 string OUT_MAZE_FILE;
 string DRC_RPT_FILE;
+int OPT_MODE;
+vector<optimizationIterationParams> OPT_ITERS;
 //string DBPROCESSNODE = "N16_11m_2xa1xd3xe2y2r_utrdl";
 string DBPROCESSNODE = "";
 int    MAX_THREADS   = 8;

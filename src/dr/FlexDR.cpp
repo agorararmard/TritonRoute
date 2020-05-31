@@ -1822,6 +1822,8 @@ int FlexDR::main() {
   if (VERBOSE > 0) {
     cout <<endl <<endl <<"start detail routing ...";
   }
+
+  
   // initDR: enableDRC
   initDR(7, true);
   //cout   <<endl
@@ -1845,29 +1847,86 @@ int FlexDR::main() {
   //end();
   //searchRepair(1,  7, -4,  1, DRCCOST, 0,          0, 0, true, 1, false, 0, true); // test mode
   end();
-  searchRepair(1,  7, -4, 1, DRCCOST, 0,          0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
-  end();
-  searchRepair(2,  7, -4, 1, 2*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
-  end();
-  searchRepair(3,  7, 0, 4, 4*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
-  end();//New
-  searchRepair(4,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(6,  7,  0, 4, 4*DRCCOST, MARKERCOST,  0, 0, true, 1, false, 3); // true search and repair
-  end();//New
-  searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(8,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(9,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(10,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(11,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
-  end();
-  searchRepair(12,  7,  0, 4, 2*DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+
+  switch(OPT_MODE){
+    case 1:
+        searchRepair(1,  7, -4, 1, DRCCOST, 0,          0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(2,  7, -4, 1, 2*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(3,  7, 0, 4, 4*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();//New
+        searchRepair(4,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(6,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 1, false, 3); // true search and repair
+        end();//New
+        searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(8,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(9,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(10,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(11,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(12,  7,  0, 4, DRCCOST, MARKERCOST,  16, 2, true, 0, false, 3); // true search and repair
+        
+        break;
+
+    case 2:
+        searchRepair(1,  7, -4, 1, DRCCOST, 0,          0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(2,  7, -4, 1, 2*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(3,  7, 0, 4, 4*DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();//New
+        searchRepair(4,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(6,  7,  0, 4, 4*DRCCOST, MARKERCOST,  0, 0, true, 1, false, 3); // true search and repair
+        end();//New
+        searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(8,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(9,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(10,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(11,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(12,  7,  0, 4, 2*DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+  
+      break;
+
+    case 3:
+      for(int i =0; i < OPT_ITERS.size();i++){
+        if(i) end(); 
+        cout << "\nInput Params for Optimization Iteration\n";
+        cout << i+1 << " "<<7<< " "<<OPT_ITERS[i].offset<< " "<<OPT_ITERS[i].mazeEndIter<< " "<<OPT_ITERS[i].drcCostFactor*DRCCOST<< " "<<OPT_ITERS[i].markerCostFactor*MARKERCOST<< " "<<OPT_ITERS[i].markerBloatWidth<< " "<<OPT_ITERS[i].markerBloatDepth<< " "<<true<< " "<<OPT_ITERS[i].ripUpMode<< " "<<false<< " "<<OPT_ITERS[i].fixMode << endl;
+        searchRepair(i+1,7,OPT_ITERS[i].offset,OPT_ITERS[i].mazeEndIter,OPT_ITERS[i].drcCostFactor*DRCCOST,OPT_ITERS[i].markerCostFactor*MARKERCOST,OPT_ITERS[i].markerBloatWidth,OPT_ITERS[i].markerBloatDepth,true,OPT_ITERS[i].ripUpMode,false,OPT_ITERS[i].fixMode);
+      } 
+      break;
+    case 0:
+    default:
+        searchRepair(1,  7, -4, 1, DRCCOST, 0,          0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(2,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(3,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(4,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(6,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+  }
  
   if (DRC_RPT_FILE != string("")) {
     reportDRC();

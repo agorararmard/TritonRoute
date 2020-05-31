@@ -37,6 +37,60 @@
 using namespace std;
 using namespace fr;
 
+void parseOptimizationIteration(string iter){
+  fr::optimizationIterationParams OPT_ITER;
+  char delimiter=' ';
+    
+  int pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  string value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.offset = stoi(value);  
+
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.mazeEndIter = stoi(value);
+
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.drcCostFactor = stof(value);
+  
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.markerCostFactor = stof(value);
+  
+
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.markerBloatWidth = stoi(value);
+  
+
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.markerBloatDepth = stoi(value);
+  
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
+  OPT_ITER.ripUpMode = stoi(value);
+  
+
+  OPT_ITER.fixMode = stoi(iter);
+  
+  OPT_ITERS.push_back(OPT_ITER);
+}
+
 int readParams(const string &fileName) {
   int readParamCnt = 0;
   fstream fin(fileName.c_str());
@@ -61,6 +115,8 @@ int readParams(const string &fileName) {
         else if (field == "threads")  { MAX_THREADS = atoi(value.c_str()); ++readParamCnt;}
         else if (field == "verbose")    VERBOSE = atoi(value.c_str());
         else if (field == "dbProcessNode") { DBPROCESSNODE = value; ++readParamCnt;}
+        else if (field == "optimizationMode"){OPT_MODE = stoi(value); ++readParamCnt;}
+        else if (field == "optimizationIteration"){parseOptimizationIteration(value); ++readParamCnt;}
       }
     }
     fin.close();
@@ -154,7 +210,11 @@ int main(int argc, char** argv) {
         argc--;
         VERBOSE = atoi(*argv);
         //cout <<"output: " <<OUT_FILE <<endl;
-      } else {
+      } else if (strcmp(*argv, "-optimizationMode")==0){
+        argv++;
+        argc--;
+        OPT_MODE = atoi(*argv);
+      }else {
         cout <<"ERROR: Illegal command line option: " <<*argv <<endl;
         return 2;
       }

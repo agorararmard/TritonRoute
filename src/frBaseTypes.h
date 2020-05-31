@@ -292,6 +292,16 @@ namespace fr {
   class frTerm;
   class frInst;
   class frBlockage;
+  struct optimizationIterationParams{
+    int offset;
+    int mazeEndIter;
+    float drcCostFactor;
+    float markerCostFactor;
+    frUInt4 markerBloatWidth;
+    frUInt4 markerBloatDepth;
+    int ripUpMode;
+    int fixMode;
+  };
   struct edge_properties_t {
     //std::shared_ptr<frBlockObject> objPtr;
     //std::shared_ptr<frRoute> objPtr;
@@ -362,3 +372,4 @@ namespace fr {
 }
 
 #endif
+
