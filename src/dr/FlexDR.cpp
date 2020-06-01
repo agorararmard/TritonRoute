@@ -1907,8 +1907,8 @@ int FlexDR::main() {
       for(int i =0; i < OPT_ITERS.size();i++){
         if(i) end(); 
         cout << "\nInput Params for Optimization Iteration\n";
-        cout << i+1 << " "<<7<< " "<<OPT_ITERS[i].offset<< " "<<OPT_ITERS[i].mazeEndIter<< " "<<OPT_ITERS[i].drcCostFactor*DRCCOST<< " "<<OPT_ITERS[i].markerCostFactor*MARKERCOST<< " "<<OPT_ITERS[i].markerBloatWidth<< " "<<OPT_ITERS[i].markerBloatDepth<< " "<<true<< " "<<OPT_ITERS[i].ripUpMode<< " "<<false<< " "<<OPT_ITERS[i].fixMode << endl;
-        searchRepair(i+1,7,OPT_ITERS[i].offset,OPT_ITERS[i].mazeEndIter,OPT_ITERS[i].drcCostFactor*DRCCOST,OPT_ITERS[i].markerCostFactor*MARKERCOST,OPT_ITERS[i].markerBloatWidth,OPT_ITERS[i].markerBloatDepth,true,OPT_ITERS[i].ripUpMode,false,OPT_ITERS[i].fixMode);
+        cout << i+1 << " "<<OPT_ITERS[i].panelSize<< " "<<OPT_ITERS[i].offset<< " "<<OPT_ITERS[i].mazeEndIter<< " "<<OPT_ITERS[i].drcCostFactor*DRCCOST<< " "<<OPT_ITERS[i].markerCostFactor*MARKERCOST<< " "<<OPT_ITERS[i].markerBloatWidth<< " "<<OPT_ITERS[i].markerBloatDepth<< " "<<true<< " "<<OPT_ITERS[i].ripUpMode<< " "<<false<< " "<<OPT_ITERS[i].fixMode << endl;
+        searchRepair(i+1,OPT_ITERS[i].panelSize,OPT_ITERS[i].offset,OPT_ITERS[i].mazeEndIter,OPT_ITERS[i].drcCostFactor*DRCCOST,OPT_ITERS[i].markerCostFactor*MARKERCOST,OPT_ITERS[i].markerBloatWidth,OPT_ITERS[i].markerBloatDepth,true,OPT_ITERS[i].ripUpMode,false,OPT_ITERS[i].fixMode);
       } 
       break;
     case 0:

@@ -293,6 +293,7 @@ namespace fr {
   class frInst;
   class frBlockage;
   struct optimizationIterationParams{
+    int panelSize;
     int offset;
     int mazeEndIter;
     float drcCostFactor;
@@ -372,4 +373,3 @@ namespace fr {
 }
 
 #endif
-

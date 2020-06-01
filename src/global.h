@@ -117,4 +117,3 @@ extern std::ostream& operator<< (std::ostream& os, const fr::frBox &box);
 //extern void printAllMacros(const std::shared_ptr<fr::frDesign> &design);
 
 #endif
-

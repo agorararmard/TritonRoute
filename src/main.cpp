@@ -45,6 +45,12 @@ void parseOptimizationIteration(string iter){
   if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
   string value = iter.substr(0, pos);
   iter = iter.substr(pos + 1); 
+  OPT_ITER.panelSize = stoi(value);  
+
+  pos = iter.find(delimiter);
+  if(pos == -1) throw("INVALID OPTIMIZATION PARAMETERS");
+  value = iter.substr(0, pos);
+  iter = iter.substr(pos + 1); 
   OPT_ITER.offset = stoi(value);  
 
   pos = iter.find(delimiter);
