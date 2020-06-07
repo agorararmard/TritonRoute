@@ -1887,7 +1887,7 @@ int FlexDR::main() {
         end();
         searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
         end();
-        searchRepair(6,  7,  0, 4, 4*DRCCOST, MARKERCOST,  0, 0, true, 1, false, 3); // true search and repair
+        searchRepair(6,  7,  0, 4, 4*DRCCOST, MARKERCOST,  0, 0, true, 1, false, 3); // true search and repair with rerouting
         end();//New
         searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
         end();
@@ -1902,8 +1902,29 @@ int FlexDR::main() {
         searchRepair(12,  7,  0, 4, 2*DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
   
       break;
-
     case 3:
+        searchRepair(1,  7, -4, 1, DRCCOST, 0,          0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(2,  7, -4, 1, DRCCOST, MARKERCOST/2,  0, 0, true, 1, false, 0); // func as fully rerouting iter, no marker cost
+        end();
+        searchRepair(3,  7,  0, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(4,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(5,  7, -4, 4, DRCCOST, MARKERCOST,  0, 0, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(6,  7,  0, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(7,  7, -4, 4, DRCCOST, MARKERCOST,  4, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(8,  7,  0, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(9,  7, -4, 4, DRCCOST, MARKERCOST,  8, 2, true, 0, false, 3); // true search and repair
+        end();
+        searchRepair(10,  7,  0, 4, DRCCOST, MARKERCOST,  16, 2, true, 0, false, 3); // true search and repair
+
+        break;
+    case 4:
       for(int i =0; i < OPT_ITERS.size();i++){
         if(i) end(); 
         cout << "\nInput Params for Optimization Iteration\n";
