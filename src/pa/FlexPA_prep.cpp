@@ -960,7 +960,7 @@ void FlexPA::prepPoint_pin(frPin* pin, frInstTerm* instTerm) {
   
   vector<gtl::polygon_90_set_data<frCoord> > pinShapes;
   if (isMacroCellPin) {
-    prepPoint_pin_mergePinShapes(pinShapes, pin, instTerm, true);
+    prepPoint_pin_mergePinShapes(pinShapes, pin, instTerm, false);
   } else {
     prepPoint_pin_mergePinShapes(pinShapes, pin, instTerm);
   }
